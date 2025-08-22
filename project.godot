@@ -116,10 +116,6 @@ fullscr_tog={
 
 pointing/emulate_touch_from_mouse=true
 
-[network]
-
-tls/certificate_bundle_override="res://data/ca-certificates.crt"
-
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

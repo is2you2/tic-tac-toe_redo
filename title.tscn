@@ -182,3 +182,5 @@ theme_override_font_sizes/font_size = 32
 text = "Connecting...."
 
 [connection signal="pressed" from="NewPlay/vbox/vbox/timelimit/margin/hbox/tog" to="." method="_on_tog_pressed"]
+[connection signal="value_changed" from="NewPlay/vbox/vbox/timelimit/margin/hbox/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="text_changed" from="NewPlay/vbox/vbox/timelimit/margin/hbox/TextEdit" to="." method="_on_text_edit_text_changed"]
