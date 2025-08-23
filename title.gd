@@ -22,3 +22,10 @@ func _on_text_edit_text_changed():
 	turn_timer_slider.value = int(turn_timer_input.text)
 	selected_time_limit = int(turn_timer_input.text)
 	changed_from_input = true
+
+func _on_start_button_pressed():
+	var json = {
+		
+		'roomId': 'abcdef',
+	}
+	Root.update_reqInfo(JSON.stringify(json))

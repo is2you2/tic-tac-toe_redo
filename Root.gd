@@ -18,8 +18,18 @@ func _ready():
 		window.toggle_bottom_menu = toggle_bottom_menu_func
 		is_web_env = true
 
+# 빠른 진입용 서버 정보 업데이트
+func update_reqInfo(str:String):
+	if is_web_env and window.update_reqInfo:
+		window.update_reqInfo(str)
+
+# 상단 알림 토스트 생성하기
+func show_toast(str:String):
+	if is_web_env and window.show_toast:
+		window.show_toast(str)
+
 # 다른 페이지에서 함수 지정해주기
-# var OnWsRecvFunc = Callable(self, "my_function")
+# Root.OnWsRecvFunc = Callable(self, "my_function")
 var OnWsRecvFunc
 # ArcadeWS 를 통해서 메시지를 수신받음 (Sample)
 func ws_recv(args):
@@ -33,7 +43,7 @@ func ws_send(str: String):
 		window.ws_send(str)
 
 # 다른 페이지에서 함수 지정해주기
-# var OnWsRecvFunc = Callable(self, "my_function")
+# Root.OnWsRecvFunc = Callable(self, "my_function")
 var OnWebRTCRecvFunc
 # WebRTC 동시 연동시 수신받는 메시지
 func webrtc_recv(args):
@@ -50,6 +60,11 @@ func webrtc_send(str: String):
 func open_qrcode_modal():
 	if is_web_env and window.open_modal:
 		window.open_modal()
+
+# 앱에서 빠른 진입 QRCode 모달 닫기
+func close_qrcode_modal():
+	if is_web_env and window.close_modal:
+		window.close_modal()
 
 # 현재 연결된 아케이드 WS PeerId 받기
 func get_pid():
@@ -93,3 +108,8 @@ var current_bottom_menu = 'arcade'
 func toggle_bottom_menu(args):
 	var input_str = args[0]
 	current_bottom_menu = input_str
+
+# 게임 종료하기
+func quit_game():
+	if is_web_env and window.quit_game:
+		window.quit_game()

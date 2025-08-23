@@ -15,10 +15,15 @@ run/main_scene="uid://r2prej3hvgrq"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Root="*res://Root.gd"
+
 [display]
 
-window/size/viewport_width=432
-window/size/viewport_height=768
+window/size/viewport_width=360
+window/size/viewport_height=680
+window/size/window_height_override=560
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
