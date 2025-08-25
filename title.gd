@@ -25,7 +25,7 @@ func _on_text_edit_text_changed():
 
 func _on_start_button_pressed():
 	var json = {
-		
-		'roomId': 'abcdef',
+		'useLimit': changed_from_input,
+		'timelimit': selected_time_limit,
 	}
 	Root.update_reqInfo(JSON.stringify(json))
