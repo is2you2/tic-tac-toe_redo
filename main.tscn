@@ -24,3 +24,5 @@ offset_right = 0.0
 [node name="InGame" parent="." instance=ExtResource("2_0xm2m")]
 visible = false
 layout_mode = 1
+
+[connection signal="set_game_settings" from="Title" to="." method="_set_game_settings"]

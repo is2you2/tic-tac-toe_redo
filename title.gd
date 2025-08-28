@@ -23,9 +23,12 @@ func _on_text_edit_text_changed():
 	selected_time_limit = int(turn_timer_input.text)
 	changed_from_input = true
 
+signal set_game_settings
+
 func _on_start_button_pressed():
 	var json = {
 		'useLimit': changed_from_input,
 		'timelimit': selected_time_limit,
 	}
 	Root.update_reqInfo(JSON.stringify(json))
+	emit_signal('set_game_settings', changed_from_input, selected_time_limit)

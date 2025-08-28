@@ -18,6 +18,13 @@ func _ready():
 		window.toggle_bottom_menu = toggle_bottom_menu_func
 		is_web_env = true
 
+# 게임에 참가할 때 수집한 게임 정보 확인하기 (stringified json)
+func get_reqInfo():
+	if is_web_env and window.get_reqInfo:
+		var regInfo:String = window.get_reqInfo()
+		return JSON.parse_string(regInfo)
+	return null
+
 # 빠른 진입용 서버 정보 업데이트
 func update_reqInfo(str:String):
 	if is_web_env and window.update_reqInfo:
