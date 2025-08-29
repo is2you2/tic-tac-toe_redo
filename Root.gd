@@ -22,7 +22,8 @@ func _ready():
 func get_reqInfo():
 	if is_web_env and window.get_reqInfo:
 		var regInfo:String = window.get_reqInfo()
-		return JSON.parse_string(regInfo)
+		if regInfo:
+			return JSON.parse_string(regInfo)
 	return null
 
 # 빠른 진입용 서버 정보 업데이트

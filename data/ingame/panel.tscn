@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://pqoli6xbpvdc"]
+
+[ext_resource type="Script" uid="uid://rx51lvq74cpw" path="res://data/ingame/panel.gd" id="1_7j0n8"]
+
+[node name="Panel" type="Node2D"]
+script = ExtResource("1_7j0n8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
