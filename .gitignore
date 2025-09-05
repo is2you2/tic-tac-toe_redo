@@ -2,3 +2,5 @@
 .godot/
 /android/
 *.pck
+*.import
+*.blend1
