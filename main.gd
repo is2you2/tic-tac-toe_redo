@@ -8,23 +8,20 @@ func _ready():
 	Root.OnWsRecvFunc = Callable(self, "_on_ws_recv")
 	var json = Root.get_reqInfo()
 	if json != null:
-		print('_ready')
 		ReadyToStart = true
 		Root.toggle_chat_input(true)
 		_set_game_settings(json.data.useLimit, json.data.timelimit)
 		title_node.queue_free()
-		ingame_node.show()
+		start_game()
 
 func _set_game_settings(_useLimit:bool, _timelimit:int):
 	useLimit = _useLimit
 	timelimit = _timelimit
-	print('_set_game_settings')
 	ReadyToStart = true
 
 func _on_ws_recv(args):
 	var json_str:String = args[0]
 	var json = JSON.parse_string(json_str)
-	print(json,'/',ReadyToStart)
 	match json.type:
 		'join':
 			var my_pid:String = Root.get_pid()
@@ -34,7 +31,7 @@ func _on_ws_recv(args):
 				Root.close_qrcode_modal()
 				Root.toggle_chat_input(true)
 				title_node.queue_free()
-				ingame_node.show()
+				start_game()
 		'leave':
 			Root.show_toast('Game over: The other person leaves')
 			await get_tree().create_timer(3).timeout
@@ -48,9 +45,11 @@ func _on_ws_recv(args):
 					Root.show_toast('Failed to update game info')
 
 @onready var title_node:= $Title
-@onready var ingame_node:= $InGame
 
 # 인 게임 화면으로 전환하기 (1회성)
 func toggle_to_ingame():
 	title_node.queue_free()
-	ingame_node.visible = true
+	start_game()
+
+func start_game():
+	pass
